@@ -13,6 +13,9 @@ export default function getTeams() {
   const data = await resp.json();
   return data;
 }
-
+export async function fetchTeamsById(id) {
+  const resp = await client.from('teams').select('*').match({ id }).single();
+  return checkError(resp);
+}
 // creating a fetch function that is going to pull my props from supa
 // focus on just inserting the list of teams onto page
