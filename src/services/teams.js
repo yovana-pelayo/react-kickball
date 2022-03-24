@@ -1,6 +1,6 @@
-import client from '.client';
+import { client, checkError } from './client';
 
-export default function getTeams() {
+export async function getTeams() {
   const params = new URLSearchParams();
   params.set('select', '*');
   let url = `${process.env.REACT_APP_SUPABASE_URL}/rest/v1/teams?${params.toString()}`;
