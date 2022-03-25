@@ -12,9 +12,14 @@ export async function fetchPlayers() {
   });
   const data = await resp.json();
   return data;
+  export async function fetchPlayerById(id) {
+    const resp = await client.from('players').select('*').match({ id }).single();
+    return checkError(resp);
+  }
 }
 
 //created params variable
 //params holds all of the info from supabase
 // we are setting url equal to the string that represents the object.
 // What? url is saying we want to return the info back in a string form?
+// set all that info to data so we can use that var in our component
