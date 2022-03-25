@@ -5,6 +5,7 @@ import TeamsList from './Views/Teams/TeamsList';
 import TeamDetails from './Views/Teams/TeamDetails';
 import Header from './Components/Header';
 import './Components/Header.css';
+import PlayerDetails from './Views/Players/PlayerDetails';
 
 import PlayersList from './Views/Players/PlayerList';
 function App() {
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/players">
             <PlayersList />
+          </Route>
+          <Route exact path="/players/:id">
+            <PlayerDetails />
           </Route>
         </Switch>
       </div>

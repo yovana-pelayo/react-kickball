@@ -7,4 +7,17 @@ export default function PlayerDetails() {
   const params = useParams();
   const [player, setPlayer] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchPlayerById(params.id);
+      setPlayer(data);
+      setLoading();
+    };
+    fetchData();
+  }, [params.id]);
+
+  if (loading) return <div>Loading</div>;
+
+  return <div>GSD</div>;
 }
