@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TeamsList from './Views/Teams/TeamsList';
 import TeamDetails from './Views/Teams/TeamDetails';
 import Header from './Components/Header';
-
+import './Components/Header.css';
 function App() {
   return (
     <BrowserRouter>
