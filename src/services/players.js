@@ -3,7 +3,7 @@ import { client, checkError } from './client';
 export async function fetchPlayers() {
   const params = new URLSearchParams();
   params.set('select', '*');
-  let url = `${process.env.REACT_APP_SUPABASE_URL}/rest/v1/teams${params.toString()}`;
+  let url = `${process.env.REACT_APP_SUPABASE_URL}/rest/v1/players?${params.toString()}`;
   const resp = await fetch(url, {
     headers: {
       apikey: process.env.REACT_APP_SUPABASE_KEY,
