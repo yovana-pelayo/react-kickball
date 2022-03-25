@@ -1,21 +1,27 @@
 import './App.css';
 import Home from './Views/Home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Teams from './Views/Teams/TeamsList';
+import TeamsList from './Views/Teams/TeamsList';
 import TeamDetails from './Views/Teams/TeamDetails';
+import Header from './Components/Header';
 
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/teams">
-          <Teams />
-        </Route>
-        <Route exact path="/teams/:id">
-          <TeamDetails />
-        </Route>
-        <Home />
-      </Switch>
+      <Header />
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/teams">
+            <TeamsList />
+          </Route>
+          <Route exact path="/teams/:id">
+            <TeamDetails />
+          </Route>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }
