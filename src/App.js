@@ -20,6 +20,9 @@ function App() {
           <Route exact path="/teams/:id">
             <TeamDetails />
           </Route>
+          <Route exact path="/players">
+            <PlayersList />
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>
