@@ -10,12 +10,13 @@ export async function fetchPlayers() {
       Authorization: `Bearer ${process.env.REACT_APP_SUPABASE_KEY}`,
     },
   });
+
   const data = await resp.json();
   return data;
-  export async function fetchPlayerById(id) {
-    const resp = await client.from('players').select('*').match({ id }).single();
-    return checkError(resp);
-  }
+}
+export async function fetchPlayerById(id) {
+  const resp = await client.from('players').select('*').match({ id }).single();
+  return checkError(resp);
 }
 
 //created params variable

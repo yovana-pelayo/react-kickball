@@ -10,6 +10,7 @@ export default function Header() {
       <NavLink exact to="/teams">
         Teams
       </NavLink>
+      <NavLink to="/players">Players</NavLink>
     </div>
   );
 }

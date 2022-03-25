@@ -5,6 +5,8 @@ import TeamsList from './Views/Teams/TeamsList';
 import TeamDetails from './Views/Teams/TeamDetails';
 import Header from './Components/Header';
 import './Components/Header.css';
+
+import PlayersList from './Views/Players/PlayerList';
 function App() {
   return (
     <BrowserRouter>
