@@ -19,5 +19,15 @@ export default function PlayerDetails() {
 
   if (loading) return <div>Loading</div>;
 
-  return <div>GSD</div>;
+  return (
+    <div>
+      <h1>{player.name}</h1>
+      <ul>
+        <li>
+          {player.position} for the
+          {player.teams.name}. Located in {player.teams.city}, {player.teams.state}
+        </li>
+      </ul>
+    </div>
+  );
 }
