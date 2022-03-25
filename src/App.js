@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './Views/Home';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import TeamsList from './Views/Teams/TeamsList';
+import TeamDetails from './Views/Teams/TeamDetails';
+import Header from './Components/Header';
+import './Components/Header.css';
+import PlayerDetails from './Views/Players/PlayerDetails';
 
+import PlayersList from './Views/Players/PlayerList';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/teams">
+            <TeamsList />
+          </Route>
+          <Route exact path="/teams/:id">
+            <TeamDetails />
+          </Route>
+          <Route exact path="/players">
+            <PlayersList />
+          </Route>
+          <Route exact path="/players/:id">
+            <PlayerDetails />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+//Routes is like the index which tells nav links where to go
