@@ -8,10 +8,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/teams">
+        <Route exact path="/teams">
           <Teams />
         </Route>
-        <Route path="/teams:info">
+        <Route exact path="/teams/:id">
           <TeamDetails />
         </Route>
         <Home />

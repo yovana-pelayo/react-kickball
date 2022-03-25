@@ -17,7 +17,7 @@ export default function Teams() {
       <ul>Teams</ul>
       {teams.map((team) => (
         <li key={team.id}>
-          <Link to="/teams">{team.name}</Link>
+          <Link to={`/teams/${team.id}`}>{team.name}</Link>
         </li>
       ))}
     </div>

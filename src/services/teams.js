@@ -14,7 +14,7 @@ export async function getTeams() {
   return data;
 }
 export async function getTeamsById(id) {
-  const resp = await client.from('teams').select('*').match({ id }).single();
+  const resp = await client.from('teams').select(`*, players (*) `).match({ id }).single();
   return checkError(resp);
 }
 // creating a fetch function that is going to pull my props from supa

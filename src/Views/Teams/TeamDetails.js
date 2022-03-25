@@ -1,16 +1,37 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getTeamsById } from '../../services/teams';
 
 export default function TeamDetails() {
   const params = useParams();
-  const [teams, setTeams] = useState(null);
+  const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getTeamsById(params.id).then(({ data }) => setTeams(data));
+    const fetchData = async () => {
+      const data = await getTeamsById(params.id);
+      setTeam(data);
+      setLoading(false);
+    };
+    fetchData();
   }, [params.id]);
-  return <div className="team-info">Team Information!</div>;
+
+  if (loading) return <div>Loading</div>;
+  return (
+    <div>
+      <h1>Team Information!</h1>
+
+      <h2 key={team.id}>{team.position}</h2>
+      <ul>
+        {team.players.map((player) => (
+          <li key={player.id}>
+            Position: {player.position}, Player: {player.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 // use params is a variable that holds all of our properties from supabase
