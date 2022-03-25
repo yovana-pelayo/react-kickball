@@ -13,7 +13,7 @@ export async function getTeams() {
   const data = await resp.json();
   return data;
 }
-export async function fetchTeamsById(id) {
+export async function getTeamsById(id) {
   const resp = await client.from('teams').select('*').match({ id }).single();
   return checkError(resp);
 }
