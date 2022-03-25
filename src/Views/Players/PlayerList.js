@@ -4,7 +4,13 @@ import { fetchPlayers } from '../../services/players';
 
 export default function PlayersList() {
   const [players, setPlayers] = useState([]);
-  const fetchData = async () => {
-    const data = await fetchPlayers();
-  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchPlayers();
+      setPlayers(data);
+    };
+    fetchData();
+  }, []);
+  return <div>Player</div>;
 }
